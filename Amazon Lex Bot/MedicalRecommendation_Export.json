@@ -1,0 +1,325 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "MedicalRecommendation",
+    "version": "43",
+    "fulfillmentActivity": {
+      "codeHook": {
+        "uri": "arn:aws:lambda:us-east-1:559735701956:function:medicalRecommendation",
+        "messageVersion": "1.0"
+      },
+      "type": "CodeHook"
+    },
+    "sampleUtterances": [
+      "I don't feel good",
+      "Do I need to see a doctor",
+      "I need medical advice",
+      "I'm sick",
+      "Should I seek medical attention",
+      "I think I might have pneumonia",
+      "Should I go to the hospital"
+    ],
+    "slots": [
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.NUMBER",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "How old are you?"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 2,
+        "name": "age"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "third_highRisk",
+        "slotTypeVersion": "1",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Have you previously been diagnosed with a chronic disease?"
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"imageUrl\":\"https://ca-times.brightspotcdn.com/dims4/default/93986db/2147483647/strip/true/crop/1280x720+0+0/resize/1280x720!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F3a%2F6a%2F23c0eced6c4d7105fc039edc4b72%2Fla-1507840065-2d8alonfen-snap-image\",\"title\":\"Chronic Disease\",\"buttons\":[{\"text\":\"Yes\",\"value\":\"Yes\"},{\"text\":\"No\",\"value\":\"No\"}]}]}",
+          "maxAttempts": 2
+        },
+        "priority": 9,
+        "name": "chronic_disease"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "coronavirus",
+        "slotTypeVersion": "1",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Have you been recently diagnosed with Covid-19?"
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"imageUrl\":\"https://scx2.b-cdn.net/gfx/news/hires/2020/48-covid19.jpg\",\"title\":\"Diagnosed with Covid-19? \",\"buttons\":[{\"text\":\"Yes\",\"value\":\"Yes\"},{\"text\":\"No\",\"value\":\"No\"}]}]}",
+          "maxAttempts": 2
+        },
+        "priority": 3,
+        "name": "coronavirus"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "covid_risk",
+        "slotTypeVersion": "1",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Have you recently been in contact with someone who has been diagnosed with Covid-19?"
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"imageUrl\":\"https://image.freepik.com/free-vector/social-distancing-concept-illustration-theme_23-2148509427.jpg\",\"buttons\":[{\"text\":\"Yes\",\"value\":\"Yes\"},{\"text\":\"No\",\"value\":\"No\"}]}]}",
+          "maxAttempts": 2
+        },
+        "priority": 4,
+        "name": "covid_risk"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.DE_FIRST_NAME",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Thank you for trusting me to help, could you please give me your name?"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 1,
+        "name": "firstName"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "highRisk",
+        "slotTypeVersion": "1",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Have you been hospitalized in the past two weeks?"
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"imageUrl\":\"https://illustoon.com/photo/4536.png\",\"title\":\"Being Hospitalized\",\"buttons\":[{\"text\":\"Yes\",\"value\":\"Yes\"},{\"text\":\"No\",\"value\":\"No\"}]}]}",
+          "maxAttempts": 2
+        },
+        "priority": 6,
+        "name": "hospitalization"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "fourth_highRisk",
+        "slotTypeVersion": "1",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Do you have a weakened or suppressed immune system?"
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"imageUrl\":\"https://thumbs.dreamstime.com/b/weakened-immune-system-concept-icon-immunodeficiency-melanoma-risk-factors-reaction-against-viruses-weak-immunity-idea-thin-line-194380992.jpg\",\"title\":\"Weakened or Suppressed Immune System\",\"buttons\":[{\"text\":\"Yes\",\"value\":\"Yes\"},{\"text\":\"No\",\"value\":\"No\"}]}]}",
+          "maxAttempts": 2
+        },
+        "priority": 10,
+        "name": "immune_system"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "second_highRisk",
+        "slotTypeVersion": "1",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Do you smoke?"
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"imageUrl\":\"https://www.nicepng.com/png/detail/289-2894386_cigarette-packs-royalty-free-vector-clip-art-illustration.png\",\"title\":\"Smoking\",\"buttons\":[{\"text\":\"Yes\",\"value\":\"Yes\"},{\"text\":\"No\",\"value\":\"No\"}]}]}",
+          "maxAttempts": 2
+        },
+        "priority": 8,
+        "name": "smoking"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "travel",
+        "slotTypeVersion": "1",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "In the last few weeks have you traveled outside of the U.S.A?"
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"imageUrl\":\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxGJkowawsPoSie-yVP5nniPGWvrfdtZHyJg&usqp=CAU\",\"title\":\"Traveled \",\"buttons\":[{\"text\":\"Yes\",\"value\":\"Yes\"},{\"text\":\"No\",\"value\":\"No\"}]}]}",
+          "maxAttempts": 2
+        },
+        "priority": 5,
+        "name": "travel"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "x_rays",
+        "slotTypeVersion": "1",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Did you get an X-Ray of your lungs?"
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"imageUrl\":\"https://media.istockphoto.com/vectors/medicine-concept-xray-lungs-magnifier-and-pen-vector-id1091697716?b=1&k=6&m=1091697716&s=612x612&w=0&h=YhUmM_dEAwf6cv-i77rm0z2le15UxzbTYJtjILAgbBo=\",\"title\":\"X-Rays? \",\"buttons\":[{\"text\":\"Yes\",\"value\":\"Yes\"},{\"text\":\"No\",\"value\":\"No\"}]}]}",
+          "maxAttempts": 2
+        },
+        "priority": 7,
+        "name": "x_rays"
+      }
+    ],
+    "dialogCodeHook": {
+      "uri": "arn:aws:lambda:us-east-1:559735701956:function:medicalRecommendation",
+      "messageVersion": "1.0"
+    },
+    "slotTypes": [
+      {
+        "name": "second_highRisk",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "No"
+          },
+          {
+            "value": "Yes"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "x_rays",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "No"
+          },
+          {
+            "value": "Yes"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "third_highRisk",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "No"
+          },
+          {
+            "value": "Yes"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "coronavirus",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "No"
+          },
+          {
+            "value": "Yes"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "covid_risk",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "No"
+          },
+          {
+            "value": "Yes"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "fourth_highRisk",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "No"
+          },
+          {
+            "value": "Yes"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "travel",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "No"
+          },
+          {
+            "value": "Yes"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "highRisk",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "No"
+          },
+          {
+            "value": "Yes"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      }
+    ]
+  }
+}
