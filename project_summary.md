@@ -47,10 +47,14 @@ MedicalRecommendation_Export.json
 coronavirus_Export.json, covid_risk_Export.json, travel_Export.json, x_rays_Export.json, highRisk_Export.json, second_highRisk_Export.json, third_highRisk_Export.json, fourth_highRisk_Export.json, 
 
 **Short Videos:**
-Each video shows one of the potential outcomes that can result from interacting with our bot.* 
+
+*Each video shows one of the potential outcomes that can result from interacting with our bot.* 
 
 Age_Verification.mov
+
 Covid-19.mov
+
 High_Risk_Factors.mov
+
 X-Rays.mov
 
