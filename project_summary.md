@@ -46,3 +46,4 @@ MedicalRecommendation_Export.json
 **Exported Slots:** 
 coronavirus_Export.json, covid_risk_Export.json, travel_Export.json, x_rays_Export.json, highRisk_Export.json, second_highRisk_Export.json, third_highRisk_Export.json, fourth_highRisk_Export.json, 
 
+**Short Videos*:**
