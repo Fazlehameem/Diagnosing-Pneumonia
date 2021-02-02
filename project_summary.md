@@ -50,11 +50,5 @@ coronavirus_Export.json, covid_risk_Export.json, travel_Export.json, x_rays_Expo
 
 *Each video shows one of the potential outcomes that can result from interacting with our bot.* 
 
-Age_Verification.mov
-
-Covid-19.mov
-
-High_Risk_Factors.mov
-
-X-Rays.mov
+Age_Verification.mov, Covid-19.mov, High_Risk_Factors.mov, X-Rays.mov
 
