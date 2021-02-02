@@ -34,15 +34,15 @@ In order to model how the CNN evaluates images to make predicitons, we worked to
 
 In light of the pandemic, we created a chatbot using Amazon Lex and Lamabda to create a chat bot that consumes various patient data and x-ray images to help diagnose whether or not the patient has Penumonia or not. The Lex files are within the "Amazon Lex Bot" folder that is saved within the project 2 Github repository.
 
-Amazon Lambda Function: 
+**Amazon Lambda Function:**
 project_two_lambda_function.ipynb
 
-Exported Bot: 
+**Exported Bot:** 
 PneumoniaAdvisor_Export.json
 
-Exported Intent: 
+**Exported Intent:** 
 MedicalRecommendation_Export.json
 
-Exported Slots: 
+**Exported Slots:** 
 coronavirus_Export.json, covid_risk_Export.json, travel_Export.json, x_rays_Export.json, highRisk_Export.json, second_highRisk_Export.json, third_highRisk_Export.json, fourth_highRisk_Export.json, 
 
